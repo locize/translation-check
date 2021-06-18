@@ -1,6 +1,6 @@
 {
   "name": "translation-check",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "This package shows an overview of your translations. Check which keys are not yet translated.",
   "keywords": [
     "i18next",
