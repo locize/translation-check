@@ -1,0 +1,87 @@
+{
+  "name": "translation-check",
+  "version": "0.9.0",
+  "description": "This package shows an overview of your translations. Check which keys are not yet translated.",
+  "keywords": [
+    "i18next",
+    "translations",
+    "translation-ui",
+    "translation-stats",
+    "translation-check",
+    "translation-overview"
+  ],
+  "homepage": "https://github.com/locize/translation-check",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:locize/translation-check.git"
+  },
+  "bugs": {
+    "url": "https://github.com/locize/translation-check/issues"
+  },
+  "type": "module",
+  "main": "./dist/cjs/index.js",
+  "module": "./dist/esm/index.js",
+  "browser": "./dist/umd/translationCheck.js",
+  "types": "./index.d.ts",
+  "exports": {
+    "./package.json": "./package.json",
+    ".": {
+      "require": "./dist/cjs/index.js",
+      "default": "./dist/esm/index.js"
+    },
+    "./cjs": {
+      "default": "./dist/cjs/index.js"
+    },
+    "./esm": {
+      "default": "./dist/esm/index.js"
+    },
+    "./src": {
+      "default": "./src/index.js"
+    }
+  },
+  "scripts": {
+    "lint:javascript": "eslint .",
+    "lint:typescript": "eslint -c .ts.eslintrc *.d.ts test/types/**/*.test-d.ts",
+    "lint": "npm run lint:javascript && npm run lint:typescript",
+    "build": "rm -rf dist && rollup -c && echo '{\"type\":\"commonjs\"}' > dist/cjs/package.json",
+    "test:typescript": "tsd",
+    "test": "npm run lint && npm run test:typescript",
+    "preversion": "npm run test && npm run build && git push",
+    "postversion": "git push && git push --tags"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "@babel/runtime": "7.14.0"
+  },
+  "devDependencies": {
+    "@babel/core": "7.14.3",
+    "@babel/plugin-transform-runtime": "7.14.3",
+    "@babel/preset-env": "7.14.2",
+    "@types/mocha": "8.2.2",
+    "@typescript-eslint/eslint-plugin": "4.24.0",
+    "@typescript-eslint/parser": "4.24.0",
+    "babel-plugin-add-module-exports": "1.0.4",
+    "eslint": "7.27.0",
+    "eslint-config-standard": "16.0.2",
+    "eslint-plugin-import": "2.23.3",
+    "eslint-plugin-node": "11.1.0",
+    "eslint-plugin-promise": "5.1.0",
+    "eslint-plugin-require-path-exists": "1.1.9",
+    "eslint-plugin-standard": "5.0.0",
+    "i18next": "20.3.0",
+    "i18next-chained-backend": "3.0.2",
+    "mocha": "8.4.0",
+    "rollup": "2.49.0",
+    "rollup-plugin-babel": "4.4.0",
+    "rollup-plugin-commonjs": "10.1.0",
+    "rollup-plugin-node-resolve": "5.2.0",
+    "rollup-plugin-terser": "7.0.2",
+    "should": "13.2.3",
+    "sinon": "10.0.0",
+    "tsd": "0.15.1",
+    "typescript": "4.2.4"
+  },
+  "tsd": {
+    "directory": "test/types"
+  }
+}

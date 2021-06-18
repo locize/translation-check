@@ -1,0 +1,9 @@
+node_modules
+.DS_Store
+npm-debug.log
+package-lock.json
+dist
+# types
+# !dist/
+# dist/*
+# !dist/deno/
