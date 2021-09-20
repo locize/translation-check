@@ -7,13 +7,15 @@ export const showTranslations = (i18next, options = {}) => {
   const opts = {
     sourceLng: options.sourceLng,
     targetLngs: options.targetLngs,
-    preserveEmptyStrings: options.preserveEmptyStrings
+    preserveEmptyStrings: options.preserveEmptyStrings,
+    i18nFormat: options.i18nFormat
   }
   let resources
   if (isI18next) {
     if (!opts.sourceLng) opts.sourceLng = i18next.languages[0]
     if (!opts.targetLngs) opts.targetLngs = i18next.options.supportedLngs ? i18next.options.supportedLngs.filter((l) => l !== i18next.languages[0] && l !== 'cimode') : undefined
     if (!opts.preserveEmptyStrings) opts.preserveEmptyStrings = i18next.options.returnEmptyString
+    if (!opts.i18nFormat) opts.i18nFormat = (i18next.options.compatibilityJSON && i18next.options.compatibilityJSON !== 'v4') ? 'i18next_v3' : 'i18next_v4'
     resources = i18next.store.toJSON()
   } else {
     resources = i18next
