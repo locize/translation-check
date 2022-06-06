@@ -101,3 +101,9 @@ $('#open-editor').click(() => {
   })
 })
 ```
+
+# What's that mini.locize.com?
+
+The overview of your translations is displayed in a React.js app hosted on Github pages.
+
+This is all done on the client side only, which means locize does NOT collect ANY of your data.
