@@ -22,6 +22,7 @@ export const showTranslations = (i18next, options = {}) => {
   }
 
   const newWindow = window.open(url)
+  if (!newWindow) throw new Error('Please allow popups in your browser settings (https://support.google.com/chrome/answer/95472)')
   const initInt = setInterval(() => newWindow.postMessage({ message: 'isEditorReady' }, url), 1000)
 
   window.addEventListener('message', (evt) => {
