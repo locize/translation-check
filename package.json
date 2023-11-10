@@ -22,17 +22,23 @@
   "main": "./dist/cjs/index.js",
   "module": "./dist/esm/index.js",
   "browser": "./dist/umd/translationCheck.js",
-  "types": "./index.d.ts",
+  "types": "./index.d.mts",
   "exports": {
     "./package.json": "./package.json",
     ".": {
+      "types": {
+        "require": "./index.d.ts",
+        "import": "./index.d.mts"
+      },
       "require": "./dist/cjs/index.js",
       "default": "./dist/esm/index.js"
     },
     "./cjs": {
+      "types": "./index.d.ts",
       "default": "./dist/cjs/index.js"
     },
     "./esm": {
+      "types": "./index.d.mts",
       "default": "./dist/esm/index.js"
     },
     "./src": {
@@ -41,7 +47,7 @@
   },
   "scripts": {
     "lint:javascript": "eslint .",
-    "lint:typescript": "eslint -c .ts.eslintrc *.d.ts test/types/**/*.test-d.ts",
+    "lint:typescript": "eslint -c .ts.eslintrc *.d.ts *.d.mts test/types/**/*.test-d.ts",
     "lint": "npm run lint:javascript && npm run lint:typescript",
     "build": "rm -rf dist && rollup -c && echo '{\"type\":\"commonjs\"}' > dist/cjs/package.json",
     "test:typescript": "tsd",
@@ -68,8 +74,8 @@
     "eslint-plugin-promise": "6.1.1",
     "eslint-plugin-require-path-exists": "1.1.9",
     "eslint-plugin-standard": "5.0.0",
-    "i18next": "22.4.14",
-    "i18next-chained-backend": "4.2.0",
+    "i18next": "23.7.1",
+    "i18next-chained-backend": "4.6.2",
     "mocha": "10.2.0",
     "rollup": "2.56.3",
     "rollup-plugin-babel": "4.4.0",
