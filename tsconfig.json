@@ -7,8 +7,8 @@
     "strict": true
   },
   "include": [
-    "/test/types/*.test-d.ts",
-    "/*.d.ts",
-    "/*.d.mts"
+    "test/types/*.test-d.ts",
+    "*.d.ts",
+    "*.d.mts"
   ]
 }
